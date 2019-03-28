@@ -4,6 +4,7 @@ create table TEST_AREA (
     --
     NAME varchar(30),
     PARENT_CODE varchar(10),
+    MEMO varchar(255),
     --
     primary key (CODE)
 )^
@@ -19,6 +20,7 @@ create table TEST_HOSPITAL (
     NAME varchar(255) not null,
     PROVINCE_CODE varchar(10),
     CITY_CODE varchar(10),
+    DATE_TEST date,
     --
     primary key (ID)
 )^

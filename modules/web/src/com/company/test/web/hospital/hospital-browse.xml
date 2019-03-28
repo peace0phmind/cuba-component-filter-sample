@@ -35,6 +35,7 @@
                 <column id="name"/>
                 <column id="province"/>
                 <column id="city"/>
+                <column id="dateTest"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

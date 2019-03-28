@@ -40,6 +40,7 @@
                         <action id="lookup" type="picker_lookup"/>
                     </actions>
                 </lookupPickerField>
+                <dateField id="dateTestField" property="dateTest"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

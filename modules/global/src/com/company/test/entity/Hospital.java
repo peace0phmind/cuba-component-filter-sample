@@ -40,6 +40,18 @@ public class Hospital extends BaseIntegerIdEntity implements Updatable, Creatabl
     @JoinColumn(name = "CITY_CODE")
     protected Area city;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DATE_TEST")
+    protected Date dateTest;
+
+    public Date getDateTest() {
+        return dateTest;
+    }
+
+    public void setDateTest(Date dateTest) {
+        this.dateTest = dateTest;
+    }
+
     public Area getCity() {
         return city;
     }
