@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.test.web.hospital">
+    <data>
+        <instance id="hospitalDc"
+                  class="com.company.test.entity.Hospital"
+                  view="hospital-view">
+            <loader/>
+        </instance>
+        <collection id="provincesDc" class="com.company.test.entity.Area" view="_minimal">
+            <loader id="provincesLc">
+                <query>
+                    <![CDATA[select e from test_Area e]]>
+                </query>
+            </loader>
+        </collection>
+        <collection id="citiesDc" class="com.company.test.entity.Area" view="_minimal">
+            <loader id="citiesLc">
+                <query>
+                    <![CDATA[select e from test_Area e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="hospitalDc">
+            <column width="250px">
+                <textField id="nameField" property="name"/>
+                <lookupPickerField id="provinceField" optionsContainer="provincesDc" property="province">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                    </actions>
+                </lookupPickerField>
+                <lookupPickerField id="cityField" optionsContainer="citiesDc" property="city">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                    </actions>
+                </lookupPickerField>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

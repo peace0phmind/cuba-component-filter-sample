@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="hospitalsTable"
+        messagesPack="com.company.test.web.hospital">
+    <data readOnly="true">
+        <collection id="hospitalsDc"
+                    class="com.company.test.entity.Hospital"
+                    view="hospital-view">
+            <loader id="hospitalsDl">
+                <query>
+                    <![CDATA[select e from test_Hospital e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="hospitalsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="hospitalsTable"
+                dataLoader="hospitalsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="hospitalsTable"
+                    width="100%"
+                    dataContainer="hospitalsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="province"/>
+                <column id="city"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="hospitalsTable.create"/>
+                <button id="editBtn" action="hospitalsTable.edit"/>
+                <button id="removeBtn" action="hospitalsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

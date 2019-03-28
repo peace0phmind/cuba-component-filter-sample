@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="test_Area" name="area-view" extends="_local">
+        <property name="parent" view="_minimal"/>
+    </view>
+    <view entity="test_Hospital" name="hospital-view" extends="_local">
+        <property name="province" view="_minimal"/>
+        <property name="city" view="_minimal"/>
+    </view>
+</views>
